@@ -8,4 +8,8 @@ resource "aws_s3_bucket" "example" {
 
 variable "foo" {
   type        = string
+  validation {
+    condition     = var.foo == "bar"
+    error_message = "Please provide bar."
+  }
 }
