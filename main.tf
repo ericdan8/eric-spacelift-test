@@ -8,7 +8,7 @@ provider "aws" {
 
 provider spacelift {}
 
-resource "spacelift_context" "terraform_1_10_1 {
+resource "spacelift_context" "terraform_1_10_1" {
   description = "context for using terraform 1.10.1"
   name = "Terraform 1.10.1"
   before_init = [
@@ -22,7 +22,7 @@ resource "spacelift_context" "terraform_1_10_1 {
 resource "spacelift_mounted_file" "terraform_workflow_config" {
   context_id = spacelift_context.terraform_1_10_1.id
   relative_path = "source/.spacelift/workflow.yml"
-  content = filebase64("${path.module}/workflow.yml"))
+  content = filebase64("${path.module}/workflow.yml")
 }
 
 resource "aws_s3_bucket" "example" {
