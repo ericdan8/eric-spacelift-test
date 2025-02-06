@@ -11,11 +11,11 @@ provider "aws" {
   region              = "us-east-1"
 }
 
-provider spacelift {}
+provider "spacelift" {}
 
 resource "spacelift_context" "terraform_1_10_1" {
   description = "context for using terraform 1.10.1"
-  name = "Terraform 1.10.1"
+  name = "foobar Terraform 1.10.1"
   before_init = [
     "wget --quiet https://releases.hashicorp.com/terraform/1.10.1/terraform_1.10.1_linux_amd64.zip",
     "unzip terraform_1.10.1_linux_amd64.zip",
